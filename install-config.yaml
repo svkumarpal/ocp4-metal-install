@@ -1,5 +1,5 @@
 apiVersion: v1
-baseDomain: ocp.lan
+baseDomain: svkp.lab
 compute:
   - hyperthreading: Enabled
     name: worker
@@ -9,16 +9,16 @@ controlPlane:
   name: master
   replicas: 3
 metadata:
-  name: lab # Cluster name
+  name: Shanvika_Lab # Cluster name
 networking:
   clusterNetwork:
     - cidr: 10.128.0.0/14
       hostPrefix: 23
-  networkType: OpenShiftSDN
+  networkType: OVNKubernetes        # from 4.14 onwards user > OVNKubernetes instead of OpenShiftSDN
   serviceNetwork:
     - 172.30.0.0/16
 platform:
   none: {}
 fips: false
-pullSecret: '{"auths": ...}'
-sshKey: "ssh-ed25519 AAAA..."
+pullSecret: '{"auths": ...}'        #replace with pullSecret from Redhat
+sshKey: "ssh-ed25519 AAAA..."       # replace with id_rsa.pub key from basing nodes
