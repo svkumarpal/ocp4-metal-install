@@ -72,7 +72,7 @@
    - 120GB HDD
    - NIC1 connected to the VM Network (LAN)
    - NIC2 connected to the OCP network
-   - Load the CentOS_8.iso image into the CD/DVD drive
+   - Load the CentOS_9.iso image into the CD/DVD drive
 1. Boot all virtual machines so they each are assigned a MAC address
 1. Shut down all virtual machines except for 'ocp-svc'
 1. Use the VMware ESXi dashboard to record the MAC address of each vm, these will be used later to set static IPs
