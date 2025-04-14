@@ -22,7 +22,7 @@
 
 ## Download Software
 
-1. Download [CentOS 8 x86_64 image](https://www.centos.org/centos-linux/)
+1. Download [CentOS 9 x86_64 image](https://www.centos.org/centos-linux/)
 1. Login to [RedHat OpenShift Cluster Manager](https://cloud.redhat.com/openshift)
 1. Select 'Create Cluster' from the 'Clusters' navigation menu
 1. Select 'RedHat OpenShift Container Platform'
@@ -40,36 +40,36 @@
 
 > VMware ESXi used in this guide
 
-1. Copy the CentOS 8 iso to an ESXi datastore
+1. Copy the CentOS 9 iso to an ESXi datastore
 1. Create a new Port Group called 'OCP' under Networking
     - (In case of VirtualBox choose "Internal Network" when creating each VM and give it the same name. ocp for instance)
     - (In case of ProxMox you may use the same network bridge and choose a specific VLAN tag. 50 for instance) 
 1. Create 3 Control Plane virtual machines with minimum settings:
    - Name: ocp-cp-# (Example ocp-cp-1)
    - 4vcpu
-   - 8GB RAM
+   - 12GB RAM
    - 50GB HDD
    - NIC connected to the OCP network
    - Load the rhcos-X.X.X-x86_64-installer.x86_64.iso image into the CD/DVD drive
 1. Create 2 Worker virtual machines (or more if you want) with minimum settings:
    - Name: ocp-w-# (Example ocp-w-1)
    - 4vcpu
-   - 8GB RAM
+   - 12GB RAM
    - 50GB HDD
    - NIC connected to the OCP network
    - Load the rhcos-X.X.X-x86_64-installer.x86_64.iso image into the CD/DVD drive
 1. Create a Bootstrap virtual machine (this vm will be deleted once installation completes) with minimum settings:
    - Name: ocp-boostrap
    - 4vcpu
-   - 8GB RAM
+   - 12GB RAM
    - 50GB HDD
    - NIC connected to the OCP network
    - Load the rhcos-X.X.X-x86_64-installer.x86_64.iso image into the CD/DVD drive
 1. Create a Services virtual machine with minimum settings:
    - Name: ocp-svc
-   - 4vcpu
+   - 2vcpu
    - 4GB RAM
-   - 120GB HDD
+   - 50GB HDD
    - NIC1 connected to the VM Network (LAN)
    - NIC2 connected to the OCP network
    - Load the CentOS_9.iso image into the CD/DVD drive
