@@ -65,7 +65,7 @@
    - 50GB HDD
    - NIC connected to the OCP network
    - Load the rhcos-X.X.X-x86_64-installer.x86_64.iso image into the CD/DVD drive
-1. Create a Services virtual machine with minimum settings:
+1. Create a Services (Basin) virtual machine with minimum settings:
    - Name: ocp-svc
    - 2vcpu
    - 4GB RAM
@@ -79,7 +79,7 @@
 
 ## Configure Environmental Services
 
-1. Install CentOS8 on the ocp-svc host
+1. Install CentOS8 on the ocp-svc (Basin) host
 
    - Remove the home dir partition and assign all free storage to '/'
    - Optionally you can install the 'Guest Tools' package to have monitoring and reporting in the VMware ESXi dashboard
