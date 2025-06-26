@@ -1,0 +1,58 @@
+# AIR GAP Openshift installation install-config.yaml file
+apiVersion: v1
+baseDomain: svkp.lab
+compute:
+  - hyperthreading: Enabled
+    name: worker
+    replicas: 0
+controlPlane:
+  hyperthreading: Enabled
+  name: master
+  replicas: 3
+metadata:
+  name: shanvika-lab
+networking:
+  clusterNetwork:
+    - cidr: 10.128.0.0/14
+      hostPrefix: 23
+  networkType: OVNKubernetes
+  serviceNetwork:
+    - 172.30.0.0/16
+platform:
+  none: {}
+fips: false
+pullSecret: '{"auths" : {"infra.svkp.lab:8443" : {"auth" : "b3BlbnNoaWZ0OnJlZGhhdDEyMw=="}}}'
+sshKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDuF24ewYH8FIm1Ox31hmLDXqCwnmsaypwybwUKvQYq3RfldMG0BhBdDBvPrgdFDlcOIFd0vIlanxTAvPWT0uoYiRURpwA41gDeh1U7ZGJiKhgz1ToTaG+aqjcbA5aikMLrH6MzHqpf4T0F/yVAoAJD1F9kYRgWJXI5rZsORdm22DBFhKtWrXOphZ2FNv1OnsY9/6M4EPPMvu9gYWBRjBXn2I6+gPRvXo6vreaJ6v/9DjuGilJfd3zF7BskHaAHHb0B+MutFkgWRE3/Yc2ksdqa5FYUuZ3pdhAy+WUgZd1kfkhUpA9yRPKk67wwN3wioO5Z8cTT7Lp5zdE7lzLCzWX1+S+80xiqOjRnMrQIDKJ1S4oBpW1KwI2ckJJ2ec+WizuWFKY0ZFBbKcZ4ORjyhf860YLXsWnOmWkoUQLFMG+QKvy4Z04XcBXxaT8bqG0xbGajy4XJyeYo5XYhzmrTsg48wKQwazrsv+dWwJxYH+W8+XtyvkXWl3XL4U6kIAdq4Pk= ansadm@infra.svkp.lab"
+additionalTrustBundle:
+-----BEGIN CERTIFICATE-----
+MIID0DCCArigAwIBAgIUYUulQgXgzDw63wKQlTWamqkvp80wDQYJKoZIhvcNAQEL
+BQAwaDELMAkGA1UEBhMCVVMxCzAJBgNVBAgMAlZBMREwDwYDVQQHDAhOZXcgWW9y
+azENMAsGA1UECgwEUXVheTERMA8GA1UECwwIRGl2aXNpb24xFzAVBgNVBAMMDmlu
+ZnJhLnN2a3AubGFiMB4XDTI1MDYyNDE2MzcyOFoXDTI4MDQxMzE2MzcyOFowaDEL
+MAkGA1UEBhMCVVMxCzAJBgNVBAgMAlZBMREwDwYDVQQHDAhOZXcgWW9yazENMAsG
+A1UECgwEUXVheTERMA8GA1UECwwIRGl2aXNpb24xFzAVBgNVBAMMDmluZnJhLnN2
+a3AubGFiMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwF3i8eS0jRk5
+8wQDjk3WkVQkm58iV3gYBdWXh6it2d+8F/aMevOO9b0kgm02KFEzgJ3EKt2ZRBYo
+yBMul8DTmuKPIKeZjI+SgfGLik+s2QkHFGfEHZeUyWLziELWgqesix5LLNw5Utp0
+pBpTnWrKKFM38HORIEbGn6L+5QKTWTTPmAQ/0GjTyQ5kXjrGc7JwgJwm1MsNqaVl
+n7XSX/4KubIAnGTsbupyVzaDJ7Xb5o9q9bCWVW57jzp3I4NOIuHKuW0hnhdXlVTf
+71wNOuHRFQpNhWr7v06WGBrHmWfFgWVUzekMRxvADv0x0ugrc2WNdkvV4jGriVHf
+SxJSlw5QFQIDAQABo3IwcDALBgNVHQ8EBAMCAuQwEwYDVR0lBAwwCgYIKwYBBQUH
+AwEwGQYDVR0RBBIwEIIOaW5mcmEuc3ZrcC5sYWIwEgYDVR0TAQH/BAgwBgEB/wIB
+ATAdBgNVHQ4EFgQUAqKc5o0KjuuocWYEvb1redbziU8wDQYJKoZIhvcNAQELBQAD
+ggEBAC25rJ97JwOWXbyV8aStYzwqlSnQvg6KCnQsAVEQygBgwCZEQIX+oU9NfB5y
+TzgivxsBKRgZpqMRtNifnehIRCQfeen0vt00k/ltiZ5wrdE8x/ZUmZeZBiTQilpG
+Aigmopr9MHEUsTFzMMsQ1a/12EWljiwdvH5WTLRhRpjH5VppLWF5qvtKhT4GDYwq
+wVYVekpbRi/cRMJp/FPiuM3iGSicp6x3yHNrz/NocsDqs7pPqT8u/KPtAG6Pd+mm
+d1f1cTHbkIHTjo8/BbkoTAODyOVCgWkbkGkTgGhH+D/3y0LFawY0cH2hDBjB2yRR
+0MWmIbLWGllM9bFpulSQVnHjyvU=
+-----END CERTIFICATE-----
+ImageDigestSources:
+  - mirrors:
+      - infra.svkp.lab:8443/ocp418/openshift4
+    source: quay.io/openshift-release-dev/ocp-release
+  - mirrors:
+      - infra.svkp.lab:8443/ocp418/openshift4
+    source: quay.io/openshift-release-dev/ocp-v4.0-art-dev
+capabilities:
+  baselineCapabilitySet: v4.18
